@@ -39,6 +39,9 @@ wget -r -e robots=off -nH -np -R index.html* http://data.statmt.org/wmt17_system
 USAGE INSTRUCTIONS
 ------------------
 
+first, ensure that all requirements are present, and that the path names in the 'vars' file are up-to-date.
+If you want to decode on a GPU, you can also update the 'device' variable in that file.
+
 each subdirectory comes with several scripts translate-*.sh.
 
 For translation with a single model, execute:
