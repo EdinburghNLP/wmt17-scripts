@@ -1,0 +1,6 @@
+*.npz
+*.json
+vocab*
+truecase-model*
+bpe.model*
+.NOTES

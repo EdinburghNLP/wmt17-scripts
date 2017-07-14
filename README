@@ -1,0 +1,9 @@
+This directory contains some of the University of Edinburgh's submissions to the WMT17 shared translation task.
+To use, download the files of the respective language pair's directory, plus the 'scripts' directory and 'vars' file.
+You will be required to install or download some toolkits, and point to their location in the 'vars' file.
+
+Finally, you can translate from standard input with the scripts {src}-{trg}/translate-*.sh .
+We provide different configurations for translation with a single model, an ensemble of models,
+or for reranking with right-to-left models. The latter is our best model, and may vary slightly from the official
+submission system - see the shared task description for more details.
+
