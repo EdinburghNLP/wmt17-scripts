@@ -17,8 +17,9 @@ working_dir=$main_dir/model
 #language-dependent variables (source and target language)
 . $main_dir/vars
 
-dev=newstest2013.bpe.$src
-ref=newstest2013.$tgt
+dev_prefix=newstest2013
+dev=$dev_prefix.bpe.$src
+ref=$dev_prefix.$tgt
 prefix=$working_dir/model.npz
 
 

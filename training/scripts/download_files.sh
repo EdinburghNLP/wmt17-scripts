@@ -4,27 +4,44 @@ script_dir=`dirname $0`
 main_dir=$script_dir/..
 
 #language-independent variables (toolkit locations)
-. $script_dir/../vars
+. $main_dir/../vars
 
 # get EN-DE training data for WMT17
 
 if [ ! -f $main_dir/downloads/de-en.tgz ];
 then
   wget http://www.statmt.org/europarl/v7/de-en.tgz -O $main_dir/downloads/de-en.tgz
+  tar -xf $main_dir/downloads/de-en.tgz -C $main_dir/downloads
+fi
+
+if [ ! -f $main_dir/downloads/training-parallel-commoncrawl.tgz ];
+then
+  wget http://www.statmt.org/wmt13/training-parallel-commoncrawl.tgz -O $main_dir/downloads/training-parallel-commoncrawl.tgz
+  tar -xf $main_dir/downloads/training-parallel-commoncrawl.tgz -C $main_dir/downloads
+fi
+
+if [ ! -f $main_dir/downloads/training-parallel-nc-v12.tgz ];
+then
+  wget http://data.statmt.org/wmt17/translation-task/training-parallel-nc-v12.tgz -O $main_dir/downloads/training-parallel-nc-v12.tgz
+  tar -xf $main_dir/downloads/training-parallel-nc-v12.tgz -C $main_dir/downloads
+fi
+
+if [ ! -f $main_dir/downloads/rapid2016.tgz ];
+then
+  wget http://data.statmt.org/wmt17/translation-task/rapid2016.tgz -O $main_dir/downloads/rapid2016.tgz
+  tar -xf $main_dir/downloads/rapid2016.tgz -C $main_dir/downloads
 fi
 
 if [ ! -f $main_dir/downloads/dev.tgz ];
 then
   wget http://data.statmt.org/wmt17/translation-task/dev.tgz -O $main_dir/downloads/dev.tgz
+  tar -xf $main_dir/downloads/dev.tgz -C $main_dir/downloads
 fi
 
 
-# unpack and concatenate
-tar -xf $main_dir/downloads/de-en.tgz
-tar -xf $main_dir/downloads/dev.tgz
-
-cat $main_dir/downloads/europarl-v7.de-en.en > $main_dir/data/corpus.en
-cat $main_dir/downloads/europarl-v7.de-en.de > $main_dir/data/corpus.de
+# concatenate all training corpora
+cat $main_dir/downloads/europarl-v7.de-en.en $main_dir/downloads/commoncrawl.de-en.en $main_dir/downloads/rapid2016.de-en.en $main_dir/downloads/training/news-commentary-v12.de-en.en > $main_dir/data/corpus.en
+cat $main_dir/downloads/europarl-v7.de-en.de $main_dir/downloads/commoncrawl.de-en.de $main_dir/downloads/rapid2016.de-en.de $main_dir/downloads/training/news-commentary-v12.de-en.de > $main_dir/data/corpus.de
 
 for year in 2013;
 do
@@ -41,7 +58,7 @@ done
 for year in {2015,2016};
 do
   $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/dev/newstest${year}-ende-ref.de.sgm > $main_dir/data/newstest$year.de
-  $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloas/dev/newstest${year}-ende-src.en.sgm > $main_dir/data/newstest$year.en
+  $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/dev/newstest${year}-ende-src.en.sgm > $main_dir/data/newstest$year.en
 done
 
 cd ..
