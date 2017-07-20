@@ -21,16 +21,16 @@ USAGE INSTRUCTIONS
 1. download sample files (WARNING: this currently only downloads Europarl,
    and will not be a competitive system):
 
-./download_files.sh
+    scripts/download_files.sh
 
 2. preprocess the training, development and test corpora:
 
-./preprocess.sh
+    scripts/preprocess.sh
 
 3. train a Nematus model:
 
-./train.sh
+    scripts/train.sh
 
 4. evaluate your model:
 
-./evaluate.sh
+    scripts/evaluate.sh

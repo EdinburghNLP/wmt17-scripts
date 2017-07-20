@@ -5,14 +5,15 @@
 # mteval-v13a.pl)
 
 script_dir=`dirname $0`
-data_dir=$script_dir/data
-working_dir=$script_dir/model
+main_dir=$script_dir/../
+data_dir=$main_dir/data
+working_dir=$main_dir/model
 
 #language-independent variables (toolkit locations)
-. $script_dir/../vars
+. $main_dir/../vars
 
 #language-dependent variables (source and target language)
-. $script_dir/vars
+. $main_dir/vars
 
 test=newstest2017.bpe.$src
 ref=newstest2017.$tgt

@@ -5,12 +5,13 @@
 # detruecasing, and detokenization
 
 script_dir=`dirname $0`
+main_dir=$script_dir/../
 
 #language-independent variables (toolkit locations)
-. $script_dir/../vars
+. $main_dir/../vars
 
 #language-dependent variables (source and target language)
-. $script_dir/vars
+. $main_dir/vars
 
 sed -r 's/\@\@ //g' |
 $moses_scripts/recaser/detruecase.perl |
