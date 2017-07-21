@@ -38,6 +38,12 @@ then
   tar -xf $main_dir/downloads/dev.tgz -C $main_dir/downloads
 fi
 
+if [ ! -f $main_dir/downloads/test.tgz ];
+then
+  wget http://data.statmt.org/wmt17/translation-task/test.tgz -O $main_dir/downloads/test.tgz
+  tar -xf $main_dir/downloads/test.tgz -C $main_dir/downloads
+fi
+
 
 # concatenate all training corpora
 cat $main_dir/downloads/europarl-v7.de-en.en $main_dir/downloads/commoncrawl.de-en.en $main_dir/downloads/rapid2016.de-en.en $main_dir/downloads/training/news-commentary-v12.de-en.en > $main_dir/data/corpus.en
@@ -60,5 +66,12 @@ do
   $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/dev/newstest${year}-ende-ref.de.sgm > $main_dir/data/newstest$year.de
   $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/dev/newstest${year}-ende-src.en.sgm > $main_dir/data/newstest$year.en
 done
+
+for year in 2017;
+do
+  $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/test/newstest${year}-ende-ref.de.sgm > $main_dir/data/newstest$year.de
+  $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/test/newstest${year}-ende-src.en.sgm > $main_dir/data/newstest$year.en
+done
+
 
 cd ..

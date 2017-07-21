@@ -19,7 +19,7 @@ working_dir=$main_dir/model
 
 dev_prefix=newstest2013
 dev=$dev_prefix.bpe.$src
-ref=$dev_prefix.$tgt
+ref=$dev_prefix.$trg
 prefix=$working_dir/model.npz
 
 

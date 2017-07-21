@@ -6,7 +6,7 @@
 # change source and target prefix, optionally the number of BPE operations,
 
 script_dir=`dirname $0`
-main_dir=$script_dir/../
+main_dir=$script_dir/..
 data_dir=$main_dir/data
 model_dir=$main_dir/model
 
@@ -25,7 +25,7 @@ bpe_operations=90000
 bpe_threshold=50
 
 # tokenize
-for prefix in corpus newstest2013 newstest2014 newstest2015 newstest2016
+for prefix in corpus newstest2013 newstest2014 newstest2015 newstest2016 newstest2017
  do
    cat $data_dir/$prefix.$src | \
    $moses_scripts/tokenizer/normalize-punctuation.perl -l $src | \
@@ -52,7 +52,7 @@ for prefix in corpus
  done
 
 # apply truecaser (dev/test files)
-for prefix in newstest2013 newstest2014 newstest2015 newstest2016
+for prefix in newstest2013 newstest2014 newstest2015 newstest2016 newstest2017
  do
   $moses_scripts/recaser/truecase.perl -model $model_dir/truecase-model.$src < $data_dir/$prefix.tok.$src > $data_dir/$prefix.tc.$src
   $moses_scripts/recaser/truecase.perl -model $model_dir/truecase-model.$trg < $data_dir/$prefix.tok.$trg > $data_dir/$prefix.tc.$trg
@@ -63,7 +63,7 @@ $bpe_scripts/learn_joint_bpe_and_vocab.py -i $data_dir/corpus.tc.$src $data_dir/
 
 # apply BPE
 
-for prefix in corpus newstest2013 newstest2014 newstest2015 newstest2016
+for prefix in corpus newstest2013 newstest2014 newstest2015 newstest2016 newstest2017
  do
   $bpe_scripts/apply_bpe.py -c $model_dir/$src$trg.bpe --vocabulary $data_dir/vocab.$src --vocabulary-threshold $bpe_threshold < $data_dir/$prefix.tc.$src > $data_dir/$prefix.bpe.$src
   $bpe_scripts/apply_bpe.py -c $model_dir/$src$trg.bpe --vocabulary $data_dir/vocab.$trg --vocabulary-threshold $bpe_threshold < $data_dir/$prefix.tc.$trg > $data_dir/$prefix.bpe.$trg

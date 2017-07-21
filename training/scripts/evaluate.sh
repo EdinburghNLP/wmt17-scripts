@@ -17,14 +17,14 @@ working_dir=$main_dir/model
 
 test_prefix=newstest2017
 test=$test_prefix.bpe.$src
-ref=$test_prefix.$tgt
+ref=$test_prefix.$trg
 model=$working_dir/model.npz.best_bleu
 
 
 # decode
 THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,gpuarray.preallocate=0.1 time python $nematus_home/nematus/translate.py \
      -m $model \
-     -i $data_dir/$testv -o $working_dir/$test.output.dev -k 12 -n -p 1 --suppress-unk
+     -i $data_dir/$test -o $working_dir/$test.output.dev -k 12 -n -p 1 --suppress-unk
 
 # postprocess
 $script_dir/postprocess.sh < $working_dir/$test.output.dev > $working_dir/$test.output.postprocessed.dev
