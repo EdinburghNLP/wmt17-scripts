@@ -1,4 +1,5 @@
 #!/bin/sh
+# Distributed under MIT license
 
 # this script evaluates the current model on newstest2013,
 # using detokenized BLEU (equivalent to evaluation with

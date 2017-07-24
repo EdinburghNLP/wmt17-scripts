@@ -1,4 +1,5 @@
 #!/bin/sh
+# Distributed under MIT license
 
 # this sample script preprocesses a sample corpus, including tokenization,
 # truecasing, and subword segmentation.

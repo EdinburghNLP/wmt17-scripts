@@ -1,4 +1,6 @@
 #!/bin/bash
+# Downloads WMT17 training and test data for EN-DE
+# Distributed under MIT license
 
 script_dir=`dirname $0`
 main_dir=$script_dir/..

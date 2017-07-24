@@ -1,4 +1,5 @@
 #!/bin/sh
+# Distributed under MIT license
 
 # this sample script postprocesses the MT output,
 # including merging of BPE subword units,

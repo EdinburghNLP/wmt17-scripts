@@ -1,7 +1,8 @@
 THE UNIVERSITY OF EDINBURGH'S WMT17 SYSTEMS
 -------------------------------------------
 
-This directory contains some of the University of Edinburgh's submissions to the WMT17 shared translation task.
+This directory contains some of the University of Edinburgh's submissions to the WMT17 shared translation task,
+and a 'training' directory with scripts to preprocess and train your own model.
 
 
 REQUIREMENTS
@@ -64,6 +65,8 @@ from the official submissions due to post-submission improvements - see the shar
 LICENSE
 -------
 
+All scripts in this directory are distributed under MIT license.
+
 The use of the models provided in this directory is permitted under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported license (CC BY-NC-SA 3.0): https://creativecommons.org/licenses/by-nc-sa/3.0/
 
 Attribution - You must give appropriate credit [please use the citation below], provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
@@ -88,5 +91,3 @@ The University of Edinburgh’s Neural MT Systems for WMT17. In Proceedings of t
 	title = "{The University of Edinburgh's Neural MT Systems for WMT17}",
 	year = "2017"
 }
-
-

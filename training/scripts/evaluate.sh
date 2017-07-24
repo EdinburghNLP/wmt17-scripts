@@ -1,4 +1,5 @@
 #!/bin/sh
+# Distributed under MIT license
 
 # this script evaluates the best model (according to BLEU early stopping)
 # on newstest2017, using detokenized BLEU (equivalent to evaluation with

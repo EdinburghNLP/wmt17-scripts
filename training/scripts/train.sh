@@ -1,4 +1,5 @@
 #!/bin/sh
+# Distributed under MIT license
 
 script_dir=`dirname $0`
 main_dir=$script_dir/../
