@@ -4,6 +4,8 @@ THE UNIVERSITY OF EDINBURGH'S WMT17 SYSTEMS
 This directory contains some of the University of Edinburgh's submissions to the WMT17 shared translation task,
 and a 'training' directory with scripts to preprocess and train your own model.
 
+If you are accessing this through a git repository, it will contain all scripts and documentation,
+but no model files - the models are accessible at /mnt/vali0/www/data.statmt.org/wmt17_systems
 
 REQUIREMENTS
 ------------
@@ -37,8 +39,8 @@ if you only download selected language pairs or models, you should also download
 wget -r -e robots=off -nH -np -R index.html* http://data.statmt.org/wmt17_systems/scripts/ http://data.statmt.org/wmt17_systems/vars
 
 
-USAGE INSTRUCTIONS
-------------------
+USAGE INSTRUCTIONS: PRE-TRAINED MODELS
+--------------------------------------
 
 first, ensure that all requirements are present, and that the path names in the 'vars' file are up-to-date.
 If you want to decode on a GPU, you can also update the 'device' variable in that file.
@@ -61,6 +63,11 @@ For some language pairs, we built models that use right-to-left models for reran
 
 We used systems that include ensembles and right-to-left reranking for our official submissions; result may vary slightly
 from the official submissions due to post-submission improvements - see the shared task description for more details.
+
+USAGE INSTRUCTIONS: TRAINING SCRIPTS
+------------------------------------
+
+For training your own models, follow the instructions in `training/README.md`
 
 LICENSE
 -------
