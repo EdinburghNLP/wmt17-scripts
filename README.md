@@ -14,7 +14,7 @@ REQUIREMENTS
 The models use the following software:
 
  - moses decoder (scripts only; no compilation required) https://github.com/moses-smt/mosesdecoder
- - nematus https://github.com/rsennrich/nematus
+ - nematus https://github.com/EdinburghNLP/nematus
  - subword-nmt https://github.com/rsennrich/subword-nmt
 
 Please set the appropriate paths in the 'vars' file.
