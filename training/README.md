@@ -20,16 +20,25 @@ USAGE INSTRUCTIONS
 
 1. download sample files (WMT17 parallel training data, dev and test sets):
 
-    scripts/download_files.sh
+   ```
+   scripts/download_files.sh
+   ```
 
 2. preprocess the training, development and test corpora:
 
+    ```
     scripts/preprocess.sh
+    ```
 
 3. train a Nematus model:
 
+    ```
     scripts/train.sh
+    ```
 
 4. evaluate your model:
 
+    ```
     scripts/evaluate.sh
+    ```
+
