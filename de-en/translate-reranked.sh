@@ -17,7 +17,7 @@ $model_dir/preprocess.sh > $tmpfile_src
 #left-to-right n-best list
 THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device python $nematus_home/nematus/translate.py < $tmpfile_src \
      -m $model_dir/model.l2r.ens{1,2,3,4}.npz \
-     -k 50 -n -p 1 --n-best --suppress-unk > $tmpfile_nbest
+     -k 50 -p 1 --n-best --suppress-unk > $tmpfile_nbest
 
 #rescoring
 $model_dir/../scripts/reverse_nbest.py < $tmpfile_nbest | \

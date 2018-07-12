@@ -23,6 +23,10 @@ model=$working_dir/model.npz.best_bleu
 
 
 # decode
+
+# for new Tensorflow backend, use a command like this:
+# CUDA_VISIBLE_DEVICES=$device python $nematus_home/nematus/translate.py \
+
 THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,gpuarray.preallocate=0.1 time python $nematus_home/nematus/translate.py \
      -m $model \
      -i $data_dir/$test -o $working_dir/$test.output.dev -k 12 -n -p 1 --suppress-unk

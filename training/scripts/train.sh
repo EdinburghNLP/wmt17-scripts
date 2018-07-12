@@ -12,13 +12,15 @@ working_dir=$main_dir/model
 #language-dependent variables (source and target language)
 . $main_dir/vars
 
+# for new Tensorflow backend, use a command like this:
+# CUDA_VISIBLE_DEVICES=$device python $nematus_home/nematus/nmt.py \
+
 THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,gpuarray.preallocate=0.8 python $nematus_home/nematus/nmt.py \
     --model $working_dir/model.npz \
     --datasets $data_dir/corpus.bpe.$src $data_dir/corpus.bpe.$trg \
     --valid_datasets $data_dir/newstest2013.bpe.$src $data_dir/newstest2013.bpe.$trg \
     --dictionaries $data_dir/corpus.bpe.$src.json $data_dir/corpus.bpe.$trg.json \
     --external_validation_script $script_dir/validate.sh \
-    --reload \
     --dim_word 512 \
     --dim 1024 \
     --lrate 0.0001 \

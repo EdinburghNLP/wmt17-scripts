@@ -25,6 +25,9 @@ prefix=$working_dir/model.npz
 
 
 # decode
+# for new Tensorflow backend, use a command like this:
+# CUDA_VISIBLE_DEVICES=$device python $nematus_home/nematus/translate.py \
+
 THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,gpuarray.preallocate=0.1 time python $nematus_home/nematus/translate.py \
      -m $prefix.dev.npz \
      -i $data_dir/$dev -o $working_dir/$dev.output.dev -k 5 -n -p 1 --suppress-unk

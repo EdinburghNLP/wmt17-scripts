@@ -5,7 +5,7 @@ moses_scripts=/home/bhaddow/moses.new/dist/977e8ea/scripts
 #scripts for subword segmentation: https://github.com/rsennrich/subword-nmt
 bpe_scripts=/home/bhaddow/tools/subword-nmt
 
-#nematus: https://github.com/EdinburghNLP/nematus
+#nematus (theano version): https://github.com/EdinburghNLP/nematus/tree/theano
 nematus_home=/mnt/gna0/rsennrich/tools/nematus/
 
 #jieba word segmentation utility: https://pypi.python.org/pypi/jieba/
@@ -14,4 +14,4 @@ zh_segment_home=/mnt/baldur0/tramooc/tools/jieba
 
 #Theano device; change this to execute Nematus on GPU
 #a typical value is 'cuda'
-device=cpu
+device=cuda
