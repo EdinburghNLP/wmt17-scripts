@@ -1,0 +1,5 @@
+Copied models, test single and ensemble. Both give expected outputs.
+Tested reranked. Also gives expected output.
+
+Note that the models here were used in the submissions, but those in the
+paper had been trained slightly longer.

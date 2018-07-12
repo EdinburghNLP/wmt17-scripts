@@ -1,0 +1,5 @@
+Checking against runs in paper
+
+single: Checked, 3 diffs in 2000 sentences
+ensemble: Checked: 1 diff in 2000 sentences
+reranked: Checked: 3 diffs in 2000 sentences

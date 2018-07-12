@@ -1,0 +1,5 @@
+Comparing the outputs now against those created for the paper ..
+
+Checked translate-single: shows 4 diffs in 2000 sentences
+Checked translate-ensemble: shows no diffs
+Checked translate-reranked: 3 diffs in 2000 sentences

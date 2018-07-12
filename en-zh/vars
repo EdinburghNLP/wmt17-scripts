@@ -1,0 +1,5 @@
+src=en
+trg=zh
+nematus_home=/home/bhaddow/code/nematus/github
+#nematus_home=/home/bhaddow/code/nematus/deep-d9a13ef
+device=cuda0

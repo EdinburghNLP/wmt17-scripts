@@ -1,0 +1,4 @@
+(Note that published newstest2016 results appear to have used wrong bpe, so testing on newstest2017)
+Single shows slight differences (4/3000) to previous run.
+Ensemble is exactly the same.
+Testing rerank.
