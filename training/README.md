@@ -14,6 +14,12 @@ accompanying scripts and sample configurations; among others,
 there is documentation for right-to-left reranking:
 https://github.com/rsennrich/wmt16-scripts
 
+Note: since the WMT17 models were developed, Nematus has switched
+from using a Theano back-end to using TensorFlow. The scripts provided in
+the ```scripts``` directory are for use with the Theano version; updated
+scripts for use with the current TensorFlow version can be found in
+```scripts.tensorflow```.
+
 
 USAGE INSTRUCTIONS
 ------------------
