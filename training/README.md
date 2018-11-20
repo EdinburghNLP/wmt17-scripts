@@ -24,25 +24,27 @@ scripts for use with the current TensorFlow version can be found in
 USAGE INSTRUCTIONS
 ------------------
 
-1. download sample files (WMT17 parallel training data, dev and test sets):
+1. ensure that all requirements are present, and that the path names in the ‘vars’ file (and in `../vars`) are up-to-date. If you want to train on GPUs, you should also update the ‘device’ variable in that file.
+
+2. download sample files (WMT17 parallel training data, dev and test sets):
 
    ```
    scripts/download_files.sh
    ```
 
-2. preprocess the training, development and test corpora:
+3. preprocess the training, development and test corpora:
 
     ```
     scripts/preprocess.sh
     ```
 
-3. train a Nematus model:
+4. train a Nematus model:
 
     ```
     scripts/train.sh
     ```
 
-4. evaluate your model:
+5. evaluate your model:
 
     ```
     scripts/evaluate.sh
