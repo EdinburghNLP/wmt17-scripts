@@ -12,7 +12,7 @@ working_dir=$main_dir/model
 #language-dependent variables (source and target language)
 . $main_dir/vars
 
-CUDA_VISIBLE_DEVICES=$device python $nematus_home/nematus/nmt.py \
+CUDA_VISIBLE_DEVICES=$device python $nematus_home/nematus/train.py \
     --model $working_dir/model \
     --datasets $data_dir/corpus.bpe.$src $data_dir/corpus.bpe.$trg \
     --valid_datasets $data_dir/newstest2013.bpe.$src $data_dir/newstest2013.bpe.$trg \

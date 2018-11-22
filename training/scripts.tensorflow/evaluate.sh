@@ -21,11 +21,13 @@ test=$test_prefix.bpe.$src
 ref=$test_prefix.$trg
 model=$working_dir/model.best-valid-script
 
-
 # decode
 CUDA_VISIBLE_DEVICES=$device python $nematus_home/nematus/translate.py \
      -m $model \
-     -i $data_dir/$test -o $working_dir/$test.output.dev -k 12 -n -p 1
+     -i $data_dir/$test \
+     -o $working_dir/$test.output.dev \
+     -k 12 \
+     -n
 
 # postprocess
 $script_dir/postprocess.sh < $working_dir/$test.output.dev > $working_dir/$test.output.postprocessed.dev
