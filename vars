@@ -12,6 +12,10 @@ nematus_home=/mnt/gna0/rsennrich/tools/nematus/
 #this is only required for Chinese
 zh_segment_home=/mnt/baldur0/tramooc/tools/jieba
 
-#Theano device; change this to execute Nematus on GPU
-#a typical value is 'cuda'
+# Theano/TensorFlow device; change this to execute Nematus on GPU
+#
+# For Theano, a typical value is 'cuda'
+#
+# For TensorFlow, the value will be passed to CUDA_VISIBLE_DEVICES. It should
+# be a list of GPU identifiers. For example, '1' or '0,1,3'
 device=cuda
