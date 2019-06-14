@@ -16,7 +16,7 @@ REQUIREMENTS
 The models use the following software:
 
  - moses decoder (scripts only; no compilation required) https://github.com/moses-smt/mosesdecoder
- - nematus (theano version): https://github.com/EdinburghNLP/nematus/tree/theano
+ - nematus: https://github.com/EdinburghNLP/nematus
  - subword-nmt https://github.com/rsennrich/subword-nmt
 
 Please set the appropriate paths in the 'vars' file.
@@ -40,7 +40,7 @@ wget -r -e robots=off -nH -np -R index.html* http://data.statmt.org/wmt17_system
 to download just a single model (approx 2GB) and the corresponding translation scripts, ignoring ensembles, execute:
 
 ```
-wget -r -e robots=off -nH -np -R *ens2* -R *ens3* -R *ens4* -R *r2l* -R translate-ensemble.sh -R translate-reranked.sh -R index.html* http://data.statmt.org/wmt17_systems/en-de/
+wget -r -e robots=off -nH -np -R *ens2* -R *ens3* -R *ens4* -R *r2l* -R tf-translate-single.sh -R tf-translate-ensemble.sh -R tf-translate-reranked.sh -R index.html* http://data.statmt.org/wmt17_systems/en-de/
 ```
 
 if you only download selected language pairs or models, you should also download these files which are shared:
@@ -56,12 +56,12 @@ USAGE INSTRUCTIONS: PRE-TRAINED MODELS
 first, ensure that all requirements are present, and that the path names in the 'vars' file are up-to-date.
 If you want to decode on a GPU, you can also update the 'device' variable in that file.
 
-each subdirectory comes with several scripts translate-*.sh.
+each subdirectory comes with several scripts tf-translate-*.sh.
 
 For translation with a single model, execute:
 
 ```
-./translate-single.sh < your_input_file > your_output_file
+./tf-translate-single.sh < your_input_file > your_output_file
 ```
 
 the input should be UTF-8 plain text in the source language, one sentence per line.
@@ -69,13 +69,13 @@ the input should be UTF-8 plain text in the source language, one sentence per li
 We also provide ensembles of left-to-right models:
 
 ```
-./translate-ensemble.sh < your_input_file > your_output_file
+./tf-translate-ensemble.sh < your_input_file > your_output_file
 ```
 
 For some language pairs, we built models that use right-to-left models for reranking:
 
 ```
-./translate-reranked.sh < your_input_file > your_output_file
+./tf-translate-reranked.sh < your_input_file > your_output_file
 ```
 
 We used systems that include ensembles and right-to-left reranking for
@@ -87,6 +87,22 @@ USAGE INSTRUCTIONS: TRAINING SCRIPTS
 ------------------------------------
 
 For training your own models, follow the instructions in `training/README.md`
+
+
+LEGACY MODELS: THEANO
+---------------------
+
+All models for WMT17 were trained with a legacy version of Nematus, based on Theano.
+They have been converted to run with the current Tensorflow codebase of Nematus.
+
+To run the original Theano files, install the Theano version of Nematus
+and set the corresponding $nematus_home path in the 'vars' file:
+
+https://github.com/EdinburghNLP/nematus/tree/theano
+
+The translate scripts ('translate-*') without the 'tf-' prefix can be used to
+translate with the Theano models and codebase.
+
 
 LICENSE
 -------
